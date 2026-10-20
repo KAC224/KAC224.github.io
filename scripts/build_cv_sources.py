@@ -9,7 +9,7 @@ from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 root=Path(__file__).resolve().parents[1]
 cv=root/'cv'
-source=cv/'Khadijah_Aamir_Chaudhry_Original_CV.docx'
+source=cv/'archive'/'Khadijah_Aamir_Chaudhry_Original_CV.docx'
 base=Document(source)
 paras=base.paragraphs
 site='https://kac224.github.io/'

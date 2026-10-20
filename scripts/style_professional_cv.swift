@@ -1,6 +1,6 @@
-// Preserve the original PDF's glyphs and layout, add blue linked text, and retain
-// its existing contact links. Uses native PDFKit and Core Graphics on macOS.
-// Usage: swift scripts/style_professional_cv.swift ORIGINAL.pdf LINKS.json OUTPUT.pdf
+// Add link annotations to the PDF colored by build_professional_cv.py.
+// Retains the original glyphs, layout, color profile, and contact links.
+// Usage: swift scripts/style_professional_cv.swift COLORED.pdf LINKS.json OUTPUT.pdf
 import Foundation
 import PDFKit
 import AppKit
@@ -31,13 +31,6 @@ for i in 0..<pdf.pageCount {
     context.setFillColor(CGColor(gray: 1, alpha: 1))
     context.fill(mediaBox)
     context.drawPDFPage(original)
-    // Screen blending changes dark glyphs to blue while leaving white space
-    // white. It preserves the original embedded fonts, positions and text.
-    context.saveGState()
-    context.setBlendMode(.screen)
-    context.setFillColor(CGColor(red: 0, green: 59.0 / 224.0, blue: 99.0 / 220.0, alpha: 1))
-    for (bounds, _) in additions[i, default: []] { context.fill(bounds) }
-    context.restoreGState()
     for annotation in page.annotations {
         if let url = annotation.url { context.setURL(url as CFURL, for: annotation.bounds) }
     }
