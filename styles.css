@@ -310,7 +310,9 @@ strong {
 
 .nav-tabs {
   display: flex;
-  gap: 28px;
+  width: 100%;
+  justify-content: center;
+  gap: 8px 28px;
   flex-wrap: wrap;
 }
 
@@ -1195,6 +1197,7 @@ main {
 @media (max-width: 600px) {
   .nav-tabs {
     gap: 10px;
+    justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: auto;
     max-width: 100%;

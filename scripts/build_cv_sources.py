@@ -14,8 +14,6 @@ base=Document(source)
 paras=base.paragraphs
 site='https://kac224.github.io/'
 links={
- 'Khadijah Aamir Chaudhry':site,
- 'Lahore University of Management Sciences (LUMS)':'https://lums.edu.pk/',
  'CHASE Lab':'https://chase.lums.edu.pk/',
  'Dr. Muhammad Ali Siddiqi':'https://sbasse.lums.edu.pk/lums_employee/9462',
  'SysNet Lab':'https://sysnet.lums.edu.pk/',
@@ -24,19 +22,16 @@ links={
  'Protected Media Containers':site+'assets/writeups/protected-media-containers-early-draft.pdf',
  'EyeSense: Mobile Eyesight Screening':site+'assets/writeups/eyesense.pdf',
  'Post-Quantum Cryptography on ESP32':site+'assets/writeups/post-quantum-esp32.pdf',
- 'Kyber-512, Light-SABER, and Dilithium-II':'https://github.com/KAC224/cryptography-final-project',
  'Fintelligent Solutions':'https://www.fintelligent.cc/',
  'Uplift AI':'https://upliftai.org/',
  'Women in STEM Coordinator':'https://spades.lums.edu.pk/initiatives/women-in-stem',
- 'Umeed-e-Nau':site+'#beyond',
  'AasPass Peer Tutoring':'https://drive.google.com/drive/folders/1dZr6n9DSSht6m3_ncmZnLsxQ2xPbCkZq',
  'Spotify Mood Classification and Recommendation':'https://medium.com/@khadijah.aamir.ch/spotting-the-vibe-using-machine-learning-techniques-to-predict-song-mood-and-provide-music-6a4544c3de8e',
  'ROM-Based Digital Lock':site+'assets/rom-based-digital-lock-report.pdf',
 }
 
 def hyperlink_runs(doc):
- # Preserve the original run properties. Linking text does not change its font,
- # emphasis, colour or size.
+ # Keep the original font, emphasis and size, with blue text for every link.
  for p in doc.paragraphs:
   for label,url in links.items():
    for r in list(p._p.findall(qn('w:r'))):
@@ -58,6 +53,15 @@ def hyperlink_runs(doc):
     if after:new.append(fragment(after))
     idx=p._p.index(r);p._p.remove(r)
     for el in new:p._p.insert(idx,el);idx+=1
+  for r in p._p.xpath('.//w:hyperlink/w:r'):
+   props=r.find(qn('w:rPr'))
+   if props is None:
+    props=OxmlElement('w:rPr');r.insert(0,props)
+   color=props.find(qn('w:color'))
+   if color is None:
+    color=OxmlElement('w:color');props.append(color)
+   color.attrib.clear()
+   color.set(qn('w:val'),'175A86')
 
 pro=Document(source)
 hyperlink_runs(pro)
@@ -158,8 +162,6 @@ for i,p in enumerate(list(academic.paragraphs)):
    p._p.addprevious(b._p)
   p._p.getparent().remove(p._p)
  if i==26:
-  sub=heading('Other technical projects')
-  p._p.addprevious(sub._p)
   for title,date,points in extras:
    p._p.addprevious(heading(title,date)._p)
    for j,(text,bold) in enumerate(points):
