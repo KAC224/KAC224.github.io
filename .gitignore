@@ -5,3 +5,6 @@ PROJECT_CONTEXT.md
 assets/portrait-cutout.png
 assets/pixel-horizon.svg
 cv/*.docx
+!cv/Khadijah_Aamir_Chaudhry_Original_CV.docx
+!cv/Khadijah_Aamir_Chaudhry_Academic_CV.docx
+!cv/Khadijah_Aamir_Chaudhry_Professional_CV.docx
