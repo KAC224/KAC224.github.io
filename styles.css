@@ -1359,6 +1359,31 @@ html[data-theme="dark"] .inline-content-link {
   }
 }
 
+@media (min-width: 1440px) {
+  .hero {
+    --theme-right: calc((100vw - var(--max)) / 2 - 190px);
+  }
+
+  .theme-toggle {
+    top: 158px;
+  }
+
+  .theme-hint {
+    top: 173px;
+    right: calc(var(--theme-right) + 49px);
+  }
+
+  .theme-hint svg {
+    width: 42px;
+    height: 22px;
+    margin-top: 0;
+  }
+
+  .theme-hint path {
+    vector-effect: non-scaling-stroke;
+  }
+}
+
 @media (max-width: 1000px) {
   .nav-row {
     flex-wrap: wrap;
