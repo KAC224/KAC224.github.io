@@ -1,5 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Portfolio page loaded');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const root = document.documentElement;
+
+    if (themeToggle) {
+        const updateThemeButton = () => {
+            const isDark = root.dataset.theme === 'dark';
+            themeToggle.setAttribute('aria-pressed', String(isDark));
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        };
+
+        updateThemeButton();
+        themeToggle.addEventListener('click', () => {
+            const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+            root.dataset.theme = nextTheme;
+            updateThemeButton();
+            try {
+                localStorage.setItem('portfolio-theme', nextTheme);
+            } catch (error) {
+                // The current page can still switch themes without storage.
+            }
+        });
+    }
 
     /* ---------- nav scroll-spy ---------- */
     /* only tabs with a data-section correspond to a page section - the

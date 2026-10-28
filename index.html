@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khadijah Aamir Chaudhry</title>
+    <script>
+        try {
+            if (localStorage.getItem('portfolio-theme') === 'dark') {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        } catch (error) {
+            // The theme switch still works when browser storage is unavailable.
+        }
+    </script>
     <link rel="icon" type="image/svg+xml" href="assets/favicon-star.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,8 +119,22 @@
         <div id="heroCloudExtraLeft" class="pixel-cloud cloud-wisp" aria-hidden="true"></div>
         <div id="heroCloudExtraRight" class="pixel-cloud" aria-hidden="true"></div>
         <div id="heroCloudBottomFar" class="pixel-cloud cloud-wide" aria-hidden="true"></div>
-        <div class="moon" aria-hidden="true">
-            <svg viewBox="0 0 8 8" fill="currentColor" shape-rendering="crispEdges">
+        <div class="theme-hint" aria-hidden="true">
+            <span class="theme-hint-light">to dark mode</span>
+            <span class="theme-hint-dark">to light mode</span>
+            <svg viewBox="0 0 76 40" fill="none" aria-hidden="true">
+                <path d="M2 30C18 38 20 4 40 11C54 16 52 29 70 15M60 13L70 15L65 25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="theme-icon theme-sun" viewBox="0 0 11 11" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
+                <rect x="4" y="4" width="3" height="3"/>
+                <rect x="5" y="0" width="1" height="2"/><rect x="5" y="9" width="1" height="2"/>
+                <rect x="0" y="5" width="2" height="1"/><rect x="9" y="5" width="2" height="1"/>
+                <rect x="2" y="2" width="1" height="1"/><rect x="8" y="2" width="1" height="1"/>
+                <rect x="2" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/>
+            </svg>
+            <svg class="theme-icon theme-moon" viewBox="0 0 8 8" fill="currentColor" shape-rendering="crispEdges" aria-hidden="true">
                 <rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/>
                 <rect x="2" y="1" width="1" height="1"/><rect x="3" y="1" width="1" height="1"/>
                 <rect x="1" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/>
@@ -121,7 +144,7 @@
                 <rect x="2" y="6" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/>
                 <rect x="3" y="7" width="1" height="1"/><rect x="4" y="7" width="1" height="1"/>
             </svg>
-        </div>
+        </button>
         <div class="hero-inner">
             <div class="hero-text">
                 <p class="hero-eyebrow"><span class="eyebrow-star" aria-hidden="true">✦</span> WELCOME TO MY WEBSITE</p>
