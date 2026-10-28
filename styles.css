@@ -590,8 +590,9 @@ strong {
 }
 
 .theme-hint svg {
-  width: 60px;
-  height: 38px;
+  width: 48px;
+  height: 52px;
+  transform: translateX(-38%);
 }
 
 html[data-theme="dark"] .theme-sun,
@@ -1429,7 +1430,8 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .theme-hint svg {
-    width: 54px;
+    width: 45px;
+    height: 49px;
   }
 
   .hero-inner {
