@@ -394,7 +394,6 @@ strong {
 .hero {
   position: relative;
   z-index: 2;
-  --theme-right: max(30px, calc((100vw - var(--max)) / 2 + 8px));
   padding: 88px 20px 76px;
   min-height: 540px;
   display: flex;
@@ -538,8 +537,8 @@ strong {
 .theme-toggle {
   position: absolute;
   z-index: 3;
-  top: 14px;
-  right: var(--theme-right);
+  top: 105px;
+  left: 90%;
   display: grid;
   place-items: center;
   width: 54px;
@@ -575,22 +574,24 @@ strong {
 .theme-hint {
   position: absolute;
   z-index: 3;
-  top: 21px;
-  right: calc(var(--theme-right) + 57px);
+  top: 160px;
+  left: calc(90% + 27px);
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
-  gap: 5px;
-  color: #fffaf1;
+  width: 140px;
+  color: #29345f;
   font-family: var(--font-pixel);
   font-size: 0.65rem;
+  text-align: center;
   white-space: nowrap;
   pointer-events: none;
+  transform: translateX(-50%);
 }
 
 .theme-hint svg {
-  width: 70px;
-  height: 38px;
-  margin-top: 4px;
+  width: 50px;
+  height: 34px;
 }
 
 html[data-theme="dark"] .theme-sun,
@@ -606,6 +607,10 @@ html[data-theme="dark"] .theme-hint-dark {
 html[data-theme="dark"] .theme-toggle {
   color: #f6f1e4;
   filter: drop-shadow(0 0 12px rgba(229, 234, 255, 0.45));
+}
+
+html[data-theme="dark"] .theme-hint {
+  color: #f6f1e4;
 }
 
 .hero-inner {
@@ -1355,6 +1360,27 @@ html[data-theme="dark"] .inline-content-link {
   }
 }
 
+@media (max-width: 1200px) {
+  .hero {
+    padding-top: 130px;
+  }
+
+  .theme-toggle {
+    top: 14px;
+    left: auto;
+    right: 28px;
+  }
+
+  .theme-hint {
+    top: 67px;
+    left: auto;
+    right: 5px;
+    width: 100px;
+    font-size: 0.56rem;
+    transform: none;
+  }
+}
+
 @media (max-width: 1000px) {
   .nav-row {
     flex-wrap: wrap;
@@ -1391,17 +1417,19 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .hero {
-    --theme-right: 22px;
-    padding: 88px 16px 62px;
+    padding: 130px 16px 62px;
+  }
+
+  .theme-toggle {
+    right: 22px;
   }
 
   .theme-hint {
-    top: 22px;
     font-size: 0.54rem;
   }
 
   .theme-hint svg {
-    width: 48px;
+    width: 42px;
   }
 
   .hero-inner {
