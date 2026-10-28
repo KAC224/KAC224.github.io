@@ -574,7 +574,7 @@ strong {
 .theme-hint {
   position: absolute;
   z-index: 3;
-  top: 160px;
+  top: 150px;
   left: calc(90% + 27px);
   display: flex;
   flex-direction: column-reverse;
@@ -590,8 +590,8 @@ strong {
 }
 
 .theme-hint svg {
-  width: 50px;
-  height: 34px;
+  width: 60px;
+  height: 38px;
 }
 
 html[data-theme="dark"] .theme-sun,
@@ -1372,7 +1372,7 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .theme-hint {
-    top: 67px;
+    top: 58px;
     left: auto;
     right: 5px;
     width: 100px;
@@ -1429,7 +1429,7 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .theme-hint svg {
-    width: 42px;
+    width: 54px;
   }
 
   .hero-inner {
