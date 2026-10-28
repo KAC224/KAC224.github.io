@@ -575,22 +575,15 @@ strong {
 .theme-hint {
   position: absolute;
   z-index: 3;
-  top: 41px;
-  right: calc(var(--theme-right) + 57px);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #fffaf1;
+  top: 92px;
+  right: calc(var(--theme-right) + 27px);
+  color: #29345f;
   font-family: var(--font-pixel);
   font-size: 0.65rem;
+  text-align: center;
   white-space: nowrap;
   pointer-events: none;
-}
-
-.theme-hint svg {
-  width: 70px;
-  height: 38px;
-  margin-top: 4px;
+  transform: translateX(50%);
 }
 
 html[data-theme="dark"] .theme-sun,
@@ -1359,7 +1352,13 @@ html[data-theme="dark"] .inline-content-link {
   }
 }
 
-@media (min-width: 1440px) {
+@media (max-width: 1499px) {
+  .hero {
+    padding-top: 118px;
+  }
+}
+
+@media (min-width: 1500px) {
   .hero {
     --theme-right: calc((100vw - var(--max)) / 2 - 190px);
   }
@@ -1369,18 +1368,7 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .theme-hint {
-    top: 173px;
-    right: calc(var(--theme-right) + 49px);
-  }
-
-  .theme-hint svg {
-    width: 42px;
-    height: 22px;
-    margin-top: 0;
-  }
-
-  .theme-hint path {
-    vector-effect: non-scaling-stroke;
+    top: 218px;
   }
 }
 
@@ -1421,17 +1409,11 @@ html[data-theme="dark"] .inline-content-link {
 
   .hero {
     --theme-right: 32px;
-    padding: 88px 16px 62px;
+    padding: 118px 16px 62px;
   }
 
   .theme-hint {
-    top: 42px;
     font-size: 0.54rem;
-  }
-
-  .theme-hint svg {
-    width: 48px;
-    height: 38px;
   }
 
   .hero-inner {
