@@ -394,7 +394,7 @@ strong {
 .hero {
   position: relative;
   z-index: 2;
-  --theme-right: clamp(14px, 3vw, 40px);
+  --theme-right: clamp(30px, 5vw, 72px);
   padding: 88px 20px 76px;
   min-height: 540px;
   display: flex;
@@ -538,7 +538,7 @@ strong {
 .theme-toggle {
   position: absolute;
   z-index: 3;
-  top: 14px;
+  top: 34px;
   right: var(--theme-right);
   display: grid;
   place-items: center;
@@ -575,7 +575,7 @@ strong {
 .theme-hint {
   position: absolute;
   z-index: 3;
-  top: 21px;
+  top: 41px;
   right: calc(var(--theme-right) + 57px);
   display: flex;
   align-items: center;
@@ -1395,12 +1395,12 @@ html[data-theme="dark"] .inline-content-link {
   }
 
   .hero {
-    --theme-right: 20px;
+    --theme-right: 32px;
     padding: 88px 16px 62px;
   }
 
   .theme-hint {
-    top: 22px;
+    top: 42px;
     font-size: 0.54rem;
   }
 
